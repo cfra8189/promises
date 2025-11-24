@@ -13,7 +13,7 @@ export const fetchProductCatalog = (): Promise<{ id: number; name: string; price
     });
 };
 
-export const fetchProductReviews = (): Promise<{productId: number; comment: string }[]> => {
+export const fetchProductReviews = (productId: number): Promise<{productId: number; comment: string }[]> => {
     return new Promise((resolve, reject) => {
     setTimeout(() => {
         if (Math.random() < 0.8) {
@@ -22,7 +22,7 @@ export const fetchProductReviews = (): Promise<{productId: number; comment: stri
             { id: 2, productId, comment: "I threw my Beats by Dre in the trash after buying these..." },
         ]);
         } else {
-        reject("Failed to fetch reviews for product ID ${productId}");
+        reject(`Failed to fetch reviews for product ID ${productId}`);
         }
     }, 1500);
     });
