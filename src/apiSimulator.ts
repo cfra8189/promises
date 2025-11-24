@@ -27,18 +27,18 @@ export const fetchProductReviews = (): Promise<{productId: number; comment: stri
     }, 1500);
     });
 };
-
-export const fetchProductCatalog = (): Promise<{ id: number; name: string; price: number }[]> => {
+export const fetchSalesReport = (): Promise => {
     return new Promise((resolve, reject) => {
     setTimeout(() => {
         if (Math.random() < 0.8) {
-        resolve([
-            { id: 1, name: "Laptop", price: 1200 },
-            { id: 2, name: "Headphones", price: 200 },
-        ]);
+        resolve({
+            totalSales: 20433,
+            unitsSold: 143,
+            averagePrice: 989.88,
+        });
         } else {
-        reject("Failed to fetch product catalog");
+        reject("Failed to fetch sales report");
         }
-    }, 1000);
+    }, 1500);
     });
 };
